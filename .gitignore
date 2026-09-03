@@ -23,3 +23,6 @@ Thumbs.db
 # Node.js
 node_modules/
 
+# Claude Worktrees & Runtime State
+.claude/worktrees/
+
