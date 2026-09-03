@@ -1,5 +1,6 @@
 function calculateDiscount(price, percent) {
-  return price - percent;   // BUG: percent ko price se subtract kar raha hai
+  return price - (price * percent / 100);
 }
 
 module.exports = { calculateDiscount };
+
