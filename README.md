@@ -13,6 +13,7 @@ Welcome to the **Loop Engineering Monorepo** — a comprehensive suite of practi
   - [Project 4: Review Loop (Maker-Checker & Git Worktrees)](#4-project-4-review-loop-maker-checker--git-worktrees)
   - [Project 5: Codify the Body (Dynamic Workflows)](#5-project-5-codify-the-body-dynamic-workflows)
   - [Project 6: Event-Driven Automated PR Review Loop](#6-project-6-event-driven-automated-pr-review-loop)
+  - [Project 7: Break It on Purpose (Observability & Unit Economics)](#7-project-7-break-it-on-purpose-observability--unit-economics)
 - [Core Engineering Concepts Demonstrated](#-core-engineering-concepts-demonstrated)
 - [Comparison of Heartbeat Architectures](#-comparison-of-heartbeat-architectures)
 - [Tech Stack & Tooling](#-tech-stack--tooling)
@@ -32,6 +33,7 @@ Loop-Engineering/
 ├── project4-review-loop/       # Multi-agent Maker-Checker review loops in Git Worktrees
 ├── project5-codify-body/       # Codified multi-agent dynamic workflows (.claude/workflows/)
 ├── project6-event-driven-review/ # Event-driven PR review heartbeat (GitHub Actions & OpenCode)
+├── project7-break-it-on-purpose/ # Observability, unit economics & bounded human escalation
 ├── .github/workflows/          # CI/CD & automated event-driven PR review workflows
 ├── .gitignore                  # Clean repository ignores (Node, Python, Caches)
 └── README.md                   # Monorepo Master Documentation
@@ -105,6 +107,16 @@ Loop-Engineering/
 
 ---
 
+### 7. [Project 7: Break It on Purpose (Observability & Unit Economics)](./project7-break-it-on-purpose/README.md)
+* **Core Concepts**: *Observability*, *Concept 13 (Unit Economics / Cost Math)*, *Concept 14 (Failure Handling, Bounded Retries & Human Escalation)*
+* **Difficulty**: Medium
+* **Motive**: Stress-tests and intentionally sabotages autonomous agent loops to ensure failures are cheap, bounded, instantly diagnosable from the spine artifact, and loudly escalated to human engineers.
+* **Key Implementations**:
+  - **Task 1 (Beat Economics & Spine Diagnosis)**: Measures baseline single-beat token usage and costs (~$0.44/beat) to project monthly operational costs, then sabotages file targets to verify diagnosis from `run.log` and `progress.md` without replaying sessions.
+  - **Task 2 (Bounded Retries & Human Escalation)**: Implements an unrecoverable failure scenario with a bounded harness (`$maxAttempts = 3`) that halts and logs explicit `NEEDS HUMAN` escalation instead of infinite execution loops.
+
+---
+
 ## 🧠 Core Engineering Concepts Demonstrated
 
 | Concept | Description | Project |
@@ -118,6 +130,8 @@ Loop-Engineering/
 | **Dynamic Workflows** | Codified multi-agent orchestration pipelines using execution hooks (`pipeline`, `parallel`, `agent`). | [Project 5](./project5-codify-body/README.md) |
 | **Event-Driven Heartbeat** | Triggering autonomous agent reviews reactively from Git/CI webhooks with zero idle cost. | [Project 6](./project6-event-driven-review/README.md) |
 | **Connectors & Integrations** | Embedding AI capabilities directly into developer platforms (GitHub Actions, PR threads). | [Project 6](./project6-event-driven-review/README.md) |
+| **Unit Economics / Cost Math** | Accurately measuring single-beat token usage and extrapolating monthly operating cadence costs. | [Project 7](./project7-break-it-on-purpose/README.md) |
+| **Spine Observability & Escalation** | Diagnosing overnight agent failures purely via persistent spine logs and halting at bounded thresholds with `NEEDS HUMAN`. | [Project 7](./project7-break-it-on-purpose/README.md) |
 
 ---
 

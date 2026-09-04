@@ -1,3 +1,5 @@
 # Progress Log
 
-(No runs yet)
+## 2026-09-04
+- ERROR: nonexistent-file.md not found — needs human review
+
