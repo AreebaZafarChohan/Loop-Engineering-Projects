@@ -11,7 +11,10 @@ Welcome to the **Loop Engineering Monorepo** — a comprehensive suite of practi
   - [Project 2: Fix-Loop & Agentic Feedback Loops](#2-project-2-fix-loop--agentic-feedback-loops)
   - [Project 3: Morning Brief (The Spine & Unattended Schedule)](#3-project-3-morning-brief-the-spine--unattended-schedule)
   - [Project 4: Review Loop (Maker-Checker & Git Worktrees)](#4-project-4-review-loop-maker-checker--git-worktrees)
+  - [Project 5: Codify the Body (Dynamic Workflows)](#5-project-5-codify-the-body-dynamic-workflows)
+  - [Project 6: Event-Driven Automated PR Review Loop](#6-project-6-event-driven-automated-pr-review-loop)
 - [Core Engineering Concepts Demonstrated](#-core-engineering-concepts-demonstrated)
+- [Comparison of Heartbeat Architectures](#-comparison-of-heartbeat-architectures)
 - [Tech Stack & Tooling](#-tech-stack--tooling)
 - [Getting Started](#-getting-started)
 
@@ -27,6 +30,9 @@ Loop-Engineering/
 ├── project2-fix-loop/          # Bounded iterative fix loops with test-driven checkers
 ├── project3-morning-brief/     # State persistence across runs via The Spine Pattern
 ├── project4-review-loop/       # Multi-agent Maker-Checker review loops in Git Worktrees
+├── project5-codify-body/       # Codified multi-agent dynamic workflows (.claude/workflows/)
+├── project6-event-driven-review/ # Event-driven PR review heartbeat (GitHub Actions & OpenCode)
+├── .github/workflows/          # CI/CD & automated event-driven PR review workflows
 ├── .gitignore                  # Clean repository ignores (Node, Python, Caches)
 └── README.md                   # Monorepo Master Documentation
 ```
@@ -67,14 +73,35 @@ Loop-Engineering/
 
 ---
 
-### 4. [Project 4: Review Loop (Maker-Checker & Git Worktrees)](./project4-review-loop/task2/README.md)
-* **Core Concepts**: *Maker-Checker Architecture*, *Git Worktree Isolation*, *Claude Code Skills*
+### 4. [Project 4: Review Loop (Maker-Checker & Git Worktrees)](./project4-review-loop/README.md)
+* **Core Concepts**: *Concept 8 (Git Worktrees)*, *Concept 9 (Skills)*, *Concept 11 (Maker-Checker Pattern)*
 * **Difficulty**: Advanced
 * **Motive**: Protects the production branch through isolated experimentation and adversarial peer reviews.
 * **Key Implementations**:
-  - **Claude Code Skill (`student-grade-fix`)**: Standard Operating Procedure (SOP) guiding the Maker agent to fix grade boundary defects without tampering with tests.
-  - **Git Worktree Isolation**: Safely branch into temporary worktrees (`fix/student-grade-boundaries`) and discard invalid iterations with zero main branch pollution.
-  - **Adversarial Negative Testing**: Verified the reviewer agent issues a definitive `FAIL` on broken implementations and a `PASS` only on 100% compliant fixes.
+  - **Task 1 (JavaScript / Jest)**: E-commerce percentage discount fix with `.claude/skills/fix-discount/SKILL.md` and adversarial negative testing (detecting hardcoded cheats).
+  - **Task 2 (Python / Pytest)**: Student grade boundary fix with `.claude/skills/student-grade-fix/SKILL.md` in temporary isolated worktrees (`fix/student-grade-boundaries`).
+
+---
+
+### 5. [Project 5: Codify the Body (Dynamic Workflows)](./project5-codify-body/README.md)
+* **Core Concepts**: *Dynamic Workflows Interlude*, *Concept 8 (Worktree Isolation)*, *Concept 11 (Maker-Checker)*
+* **Difficulty**: Advanced
+* **Motive**: Transitions manual, interactive fix loops into codified, autonomous, and reusable JavaScript workflow scripts (`.claude/workflows/*.js`).
+* **Key Implementations**:
+  - **Task 1 (JavaScript / Jest — Multi-Bug Fix & Review)**: Spawns 6 subagents (3 parallel Makers in isolated worktrees + 3 independent Reviewers) via `/fix-and-review-utils-bugs` to resolve 3 distinct defects in `utils.js`.
+  - **Task 2 (Python / Pytest — Multi-Candidate Exploration)**: Benchmarks 3 distinct architectural strategies in parallel for student grade calculation via `/fix-and-review-student-grade` with anti-tampering test validation.
+  - **Architectural Insight**: Distinguishes between the **Execution Engine (The Body)** and a **True Loop** (which requires a Heartbeat + Persistent Spine).
+
+---
+
+### 6. [Project 6: Event-Driven Automated PR Review Loop](./project6-event-driven-review/README.md)
+* **Core Concepts**: *Concept 7 (Event-Driven Heartbeat)*, *Concept 10 (Connectors & Integrations)*
+* **Difficulty**: Advanced
+* **Motive**: Replaces manual sessions and polling timers with an event-driven heartbeat that triggers autonomous AI code reviews reactively on GitHub Pull Request events.
+* **Key Implementations**:
+  - **Task 1 (Python Student Grade Review)**: OpenCode AI agent automatically reviews PRs modifying grading calculation, detects strict inequality boundary bugs (`average > 90`), and posts actionable feedback.
+  - **Task 2 (JavaScript Array Utilities Review)**: Inspects PR diffs in `array-utils.js`, catches off-by-one upper bound errors (`> arr.length`) and missing null/undefined guards, and requests changes.
+  - **GitHub Actions Integration (`.github/workflows/opencode.yml`)**: Continuous automated CI review pipeline powered by `anomalyco/opencode/github@latest`.
 
 ---
 
@@ -83,11 +110,27 @@ Loop-Engineering/
 | Concept | Description | Project |
 | :--- | :--- | :--- |
 | **In-Session Polling** | Background polling loops that alert upon task completion and terminate cleanly. | [Project 1](./project1-watch-loop/README.md) |
-| **Maker vs. Checker** | Separation of code generation (Maker) from deterministic evaluation (Checker). | [Project 2](./project2-fix-loop/README.md), [Project 4](./project4-review-loop/task2/README.md) |
+| **Maker vs. Checker** | Separation of code generation (Maker) from deterministic evaluation (Checker). | [Project 2](./project2-fix-loop/README.md), [Project 4](./project4-review-loop/README.md), [Project 5](./project5-codify-body/README.md) |
 | **Bounded Iteration** | Strict termination criteria (exit code 0 or max attempt thresholds) preventing infinite loops. | [Project 2](./project2-fix-loop/README.md) |
 | **The Spine Pattern** | Using a structured, persistent artifact (`progress.md`) as external memory for stateless agents. | [Project 3](./project3-morning-brief/README.md) |
 | **Unattended Execution** | Running autonomous batch CLI workflows via scripts without human intervention. | [Project 3](./project3-morning-brief/README.md) |
-| **Git Worktrees** | Isolated filesystem work environments for safe AI code modifications. | [Project 4](./project4-review-loop/task2/README.md) |
+| **Git Worktrees** | Isolated filesystem work environments (`isolation: 'worktree'`) for safe AI code modifications. | [Project 4](./project4-review-loop/README.md), [Project 5](./project5-codify-body/README.md) |
+| **Dynamic Workflows** | Codified multi-agent orchestration pipelines using execution hooks (`pipeline`, `parallel`, `agent`). | [Project 5](./project5-codify-body/README.md) |
+| **Event-Driven Heartbeat** | Triggering autonomous agent reviews reactively from Git/CI webhooks with zero idle cost. | [Project 6](./project6-event-driven-review/README.md) |
+| **Connectors & Integrations** | Embedding AI capabilities directly into developer platforms (GitHub Actions, PR threads). | [Project 6](./project6-event-driven-review/README.md) |
+
+---
+
+## 💓 Comparison of Heartbeat Architectures
+
+Across the engineering loop series, four distinct agent heartbeat patterns were established:
+
+| Project | Heartbeat Type | Mechanism / Trigger | Use Case |
+| :--- | :--- | :--- | :--- |
+| **Project 1** | In-Session Heartbeat | Interactive loop within active CLI | Real-time interactive monitoring |
+| **Project 2** | Conditional / Run-Until-Done | Loop until exit condition/tests pass | Automated bug-fixing & TDD |
+| **Project 3** | Scheduled Heartbeat | Time-based periodic Cron / Scripts | Regular audits, standups & health checks |
+| **Project 6** | Event-Driven Heartbeat | Reactive triggers from Git/PR events | Autonomous CI/CD PR reviews |
 
 ---
 
