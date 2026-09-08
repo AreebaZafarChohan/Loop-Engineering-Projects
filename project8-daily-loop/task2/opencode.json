@@ -1,0 +1,40 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "agent": {
+    "doc-freshness-maker": {
+      "mode": "primary",
+      "model": "opencode/mimo-v2.5-free",
+      "description": "Updates documentation to match the current source code.",
+      "permission": {
+        "read": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "skill": "allow",
+        "edit": {
+          "*": "deny",
+          "docs/**": "allow"
+        },
+        "bash": "deny",
+        "task": "deny",
+        "webfetch": "deny",
+        "websearch": "deny"
+      }
+    },
+    "doc-freshness-checker": {
+      "mode": "primary",
+      "model": "opencode/mimo-v2.5-free",
+      "description": "Independently verifies documentation against source code.",
+      "permission": {
+        "read": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "skill": "allow",
+        "edit": "deny",
+        "bash": "deny",
+        "task": "deny",
+        "webfetch": "deny",
+        "websearch": "deny"
+      }
+    }
+  }
+}
