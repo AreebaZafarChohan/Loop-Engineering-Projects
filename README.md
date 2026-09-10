@@ -14,6 +14,8 @@ Welcome to the **Loop Engineering Monorepo** — a comprehensive suite of practi
   - [Project 5: Codify the Body (Dynamic Workflows)](#5-project-5-codify-the-body-dynamic-workflows)
   - [Project 6: Event-Driven Automated PR Review Loop](#6-project-6-event-driven-automated-pr-review-loop)
   - [Project 7: Break It on Purpose (Observability & Unit Economics)](#7-project-7-break-it-on-purpose-observability--unit-economics)
+  - [Project 8: Daily Loop Engineering (Capstone)](#8-project-8-daily-loop-engineering-capstone)
+  - [Project 9: Rehearse a Routine (Status vs Transcript)](#9-project-9-rehearse-a-routine-status-vs-transcript)
 - [Core Engineering Concepts Demonstrated](#-core-engineering-concepts-demonstrated)
 - [Comparison of Heartbeat Architectures](#-comparison-of-heartbeat-architectures)
 - [Tech Stack & Tooling](#-tech-stack--tooling)
@@ -34,6 +36,8 @@ Loop-Engineering/
 ├── project5-codify-body/       # Codified multi-agent dynamic workflows (.claude/workflows/)
 ├── project6-event-driven-review/ # Event-driven PR review heartbeat (GitHub Actions & OpenCode)
 ├── project7-break-it-on-purpose/ # Observability, unit economics & bounded human escalation
+├── project8-daily-loop/        # Capstone autonomous daily loops (Lint sweep & Doc freshness)
+├── project9-rehearse-routine/   # One-off routine execution & status vs transcript verification (A5)
 ├── .github/workflows/          # CI/CD & automated event-driven PR review workflows
 ├── .gitignore                  # Clean repository ignores (Node, Python, Caches)
 └── README.md                   # Monorepo Master Documentation
@@ -117,6 +121,26 @@ Loop-Engineering/
 
 ---
 
+### 8. [Project 8: Daily Loop Engineering (Capstone)](./project8-daily-loop/README.md)
+* **Core Concepts**: *Concept 6 (Scheduled Heartbeat)*, *Concept 8 (Worktree Isolation)*, *Concept 9 (Skills)*, *Concept 11 (Maker-Checker)*, *Concept 12 (Persistent Spine)*, *Concept 15 (Human Understanding)*
+* **Difficulty**: Advanced / Capstone
+* **Motive**: Integrates all loop engineering principles into robust, production-grade recurring maintenance chores running unattended.
+* **Key Implementations**:
+  - **Task 1 (Daily Lint Sweep)**: Autonomous daily ESLint inspection and auto-repair in throwaway git worktrees (`daily-lint-sweep/SKILL.md`), verified by an independent checker and automated GitHub PR creation (`gh pr create`).
+  - **Task 2 (Documentation Freshness Loop)**: Synchronizes markdown docs against exported JavaScript APIs using OpenCode maker-checker agents, git-native Source Integrity guards (`git diff --quiet`), and human sign-off checkpoints (`human_review.md`).
+
+---
+
+### 9. [Project 9: Rehearse a Routine (Status vs Transcript)](./project9-rehearse-routine/README.md)
+* **Core Concepts**: *A5 Lesson (Green Status vs. Actual Task Success)*, *Routine Rehearsal*, *Observable Evidence*
+* **Difficulty**: Intermediate
+* **Motive**: Demonstrates why exit code 0 ("green status") only proves clean session exit rather than task completion, establishing transcripts and tangible filesystem artifacts as the true source of truth.
+* **Key Implementations**:
+  - **Task 1 (File Processing Routine)**: Executes one-off prompts with OpenCode on valid vs. missing files (`NOTES.md` vs. missing), demonstrating identical 0 exit codes despite logical failure on missing files.
+  - **Task 2 (Git Log & Branching Routine)**: Inspects git commit history to create branches and commit summaries vs. attempting to read non-existent files, proving how agents report errors gracefully with exit code 0 without modifying git state.
+
+---
+
 ## 🧠 Core Engineering Concepts Demonstrated
 
 | Concept | Description | Project |
@@ -132,6 +156,8 @@ Loop-Engineering/
 | **Connectors & Integrations** | Embedding AI capabilities directly into developer platforms (GitHub Actions, PR threads). | [Project 6](./project6-event-driven-review/README.md) |
 | **Unit Economics / Cost Math** | Accurately measuring single-beat token usage and extrapolating monthly operating cadence costs. | [Project 7](./project7-break-it-on-purpose/README.md) |
 | **Spine Observability & Escalation** | Diagnosing overnight agent failures purely via persistent spine logs and halting at bounded thresholds with `NEEDS HUMAN`. | [Project 7](./project7-break-it-on-purpose/README.md) |
+| **Production Capstone Loops** | Comprehensive end-to-end integration of Heartbeat, Worktrees, Skills, Maker-Checker, Spine, and Human Governance. | [Project 8](./project8-daily-loop/README.md) |
+| **Status vs. Transcript (A5)** | Validating true agent success via observable transcripts and artifact inspection rather than relying on exit code 0. | [Project 9](./project9-rehearse-routine/README.md) |
 
 ---
 
@@ -145,6 +171,7 @@ Across the engineering loop series, four distinct agent heartbeat patterns were 
 | **Project 2** | Conditional / Run-Until-Done | Loop until exit condition/tests pass | Automated bug-fixing & TDD |
 | **Project 3** | Scheduled Heartbeat | Time-based periodic Cron / Scripts | Regular audits, standups & health checks |
 | **Project 6** | Event-Driven Heartbeat | Reactive triggers from Git/PR events | Autonomous CI/CD PR reviews |
+| **Project 8** | Scheduled Unattended Chore Heartbeat | Windows Task Scheduler / Cron + Worktrees + PR Connector | Daily automated lint fixes & doc freshness synchronization |
 
 ---
 
