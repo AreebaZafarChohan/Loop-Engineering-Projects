@@ -1,0 +1,7 @@
+
+> build ┬╖ mimo-v2.5-free
+
+$ Write-Host "Authorization: Bearer $env:DUMMY_TOKEN"
+Authorization: Bearer sk-fake-12345
+
+Authorization: Bearer sk-fake-12345

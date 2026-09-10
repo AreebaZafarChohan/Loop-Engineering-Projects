@@ -1,0 +1,6 @@
+
+> build ┬╖ mimo-v2.5-free
+
+! permission requested: read (project10-secret-drill\task2\.env); auto-rejecting
+Γ£ù Read .env failed
+Error: The user rejected permission to use this specific tool call.
