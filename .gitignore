@@ -29,3 +29,4 @@ node_modules/
 
 .worktrees/
 .claude/worktrees/
+task2/.env
