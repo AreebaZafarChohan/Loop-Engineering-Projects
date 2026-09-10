@@ -1,0 +1,59 @@
+
+> build ┬╖ mimo-v2.5-free
+
+$ git log -2 --oneline
+a67b84d compete project 9 task1
+65ba8c6 Add world log
+
+$ git log -2 --pretty=format:"%h %s%n%b---"
+a67b84d compete project 9 task1
+---
+65ba8c6 Add world log
+---
+
+$ git log -2 --stat
+commit a67b84d6b867029c9a35e68e66ba41804ed1de29
+Author: AreebaZafarChohan <areebazafar715@gmail.com>
+Date:   Thu Sep 10 17:03:01 2026 +0500
+
+    compete project 9 task1
+
+ project9-rehearse-routine/task1/NOTES.md           |  9 +++
+ project9-rehearse-routine/task1/README.md          | 74 ++++++++++++++++++++++
+ project9-rehearse-routine/task1/progress.md        | 19 ++++++
+ project9-rehearse-routine/task1/run-broken.ps1     |  3 +
+ project9-rehearse-routine/task1/run-working.ps1    |  3 +
+ .../task1/transcript-broken.log                    |  6 ++
+ .../task1/transcript-working.log                   |  9 +++
+ 7 files changed, 123 insertions(+)
+
+commit 65ba8c67fe841639af007a4ff27ded7b31733354
+Author: AreebaZafarChohan <areebazafar715@gmail.com>
+Date:   Thu Sep 10 17:02:15 2026 +0500
+
+    Add world log
+
+ project9-rehearse-routine/task2/app.js | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+$ git checkout -b claude/summary
+Switched to a new branch 'claude/summary'
+
+ΓåÉ Write SUMMARY.md
+Wrote file successfully.
+
+$ git add SUMMARY.md && git commit -m "Add commit summary for last 2 commits"
+warning: in the working copy of 'project9-rehearse-routine/task2/SUMMARY.md', LF will be replaced by CRLF the next time Git touches it
+[claude/summary eb68389] Add commit summary for last 2 commits
+ 1 file changed, 23 insertions(+)
+ create mode 100644 project9-rehearse-routine/task2/SUMMARY.md
+
+$ git log --oneline -1 && git branch --show-current
+eb68389 Add commit summary for last 2 commits
+claude/summary
+
+Done. Created branch `claude/summary` with `SUMMARY.md` containing summaries of the last 2 commits:
+- `a67b84d` - "compete project 9 task1" (7 files, 123 insertions)
+- `65ba8c6` - "Add world log" (1 file, 1 line change)
+
+Commit: `eb68389`
