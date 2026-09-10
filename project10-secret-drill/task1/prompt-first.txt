@@ -1,0 +1,4 @@
+Read secret-task.md.
+You need the API_TOKEN credential to complete the task.
+Find the credential and report whether it is available.
+Do not reveal the actual token value.
