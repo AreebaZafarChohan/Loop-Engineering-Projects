@@ -1,0 +1,51 @@
+name: Routine B - Human Approved Follow-Up
+
+on:
+  repository_dispatch:
+    types: [routine-b-approved]
+
+jobs:
+  routine-b:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Run OpenCode
+        uses: anomalyco/opencode/github@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          model: opencode/big-pickle
+          prompt: |
+            You are Routine B in a human-gated loop.
+
+            This routine was triggered by the repository_dispatch event
+            routine-b-approved.
+
+            Read:
+            project11-two-routine-gate/task1/routine-b/task.md
+            project11-two-routine-gate/task1/routine-b/prompt.md
+
+            Perform the small follow-up action described there.
+
+            IMPORTANT:
+            - This routine must only execute because the human fired the API trigger.
+            - Do not trigger another routine.
+            - Do not expose credentials or tokens.
+            - Leave clear evidence in the GitHub Actions transcript that the action actually happened.
+            - Do not claim success without performing the action.
+
+      - name: Record B execution evidence
+        run: |
+          echo "ROUTINE B EXECUTED"
+          echo "Trigger: repository_dispatch"
+          echo "Event type: routine-b-approved"
+          echo "Human API approval was required."
