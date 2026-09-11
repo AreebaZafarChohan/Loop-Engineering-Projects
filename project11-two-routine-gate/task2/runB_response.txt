@@ -1,0 +1,7 @@
+Approved and merged:
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+Merge made by the 'ort' strategy.
+ project11-two-routine-gate/task2/DRAFT.md | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+ create mode 100644 project11-two-routine-gate/task2/DRAFT.md

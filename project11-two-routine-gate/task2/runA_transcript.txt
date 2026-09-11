@@ -1,0 +1,30 @@
+
+> build ┬╖ mimo-v2.5-free
+
+$ git checkout -b claude/release-draft
+Switched to a new branch 'claude/release-draft'
+
+$ git log -3 --pretty=format:"%H%n%s%n%b---"
+f5c300bc692c676b903d8a1a161238d1c0bf83f6
+docs(project11): finalize human-gated workflow evidence
+---
+71b8a31f25e81f60fed42c8d86cf3ab5f41764fa
+chore(project11): record Routine B follow-up
+---
+8b485916411678398c630ab34e36550492f4e5e4
+fix(project11): make Routine B human-gated follow-up concrete
+---
+
+ΓåÉ Write DRAFT.md
+Wrote file successfully.
+
+$ git add DRAFT.md && git commit -m "docs: add release draft summarizing last 3 commits"
+warning: in the working copy of 'project11-two-routine-gate/task2/DRAFT.md', LF will be replaced by CRLF the next time Git touches it
+[claude/release-draft a68c2e3] docs: add release draft summarizing last 3 commits
+ 1 file changed, 15 insertions(+)
+ create mode 100644 project11-two-routine-gate/task2/DRAFT.md
+
+$ git branch --show-current
+claude/release-draft
+
+Done. Created branch `claude/release-draft` with `DRAFT.md` committed, summarizing the last 3 commits. The branch is not merged into main.
