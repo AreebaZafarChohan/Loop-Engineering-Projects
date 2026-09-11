@@ -19,8 +19,8 @@ jobs:
           echo "Human gate: REQUIRED before Routine B"
           echo "Routine A must NOT trigger Routine B"
 
-          cat routine-a/task.md
-          cat routine-a/prompt.md
+          cat project11-two-routine-gate/task1/routine-a/task.md
+          cat project11-two-routine-gate/task1/routine-a/prompt.md
 
           echo ""
           echo "Draft prepared for human review."
