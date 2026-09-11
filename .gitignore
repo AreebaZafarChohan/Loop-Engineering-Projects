@@ -30,3 +30,4 @@ node_modules/
 .worktrees/
 .claude/worktrees/
 task2/.env
+project11-two-routine-gate/task2/gate_token.txt
