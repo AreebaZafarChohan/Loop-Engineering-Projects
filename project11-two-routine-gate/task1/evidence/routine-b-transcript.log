@@ -1,0 +1,101 @@
+================================================================================
+ROUTINE B EXECUTION TRANSCRIPT & EVIDENCE LOG
+================================================================================
+
+Workflow: .github/workflows/routine-b-api.yml
+Workflow Name: Routine B - Human Approved Follow-Up
+Trigger Type: repository_dispatch
+Event Type: routine-b-approved
+Authentication: Bearer Token (Securely passed via API; omitted from all logs/files)
+
+--------------------------------------------------------------------------------
+1. INITIAL RUN #1 (FAILURE & DIAGNOSIS)
+--------------------------------------------------------------------------------
+Run ID: 34618167099
+Event: repository_dispatch
+Status: Completed
+Conclusion: Failure
+
+Failure Diagnosis:
+- The initial workflow run failed during the OpenCode step.
+- Error reported in runner output:
+  "Unsupported event type: repository_dispatch"
+- Implementation Fix:
+  Commit: 8b48591
+  Message: fix(project11): make Routine B human-gated follow-up concrete
+  Action: Removed unsupported OpenCode step and replaced with concrete file-based
+          action, explicit assertion/verification, and git persistence.
+
+--------------------------------------------------------------------------------
+2. VERIFIED RUN #2 (SUCCESSFUL EXECUTION)
+--------------------------------------------------------------------------------
+Run ID: 34619569404
+Event: repository_dispatch (routine-b-approved)
+Status: Completed
+Conclusion: Success
+Head SHA: 8b485916411678398c630ab34e36550492f4e5e4
+
+Step-by-Step Job Results:
+-------------------------
+1. Perform approved follow-up action:
+   - Command: mkdir -p & write follow-up.md
+   - Output:
+     ROUTINE B ACTION PERFORMED
+     Created/updated: project11-two-routine-gate/task1/routine-b/output/follow-up.md
+   - Status: SUCCESS
+
+2. Verify actual action:
+   - Command: test -f "$OUTPUT" && grep -q "Status: COMPLETED" "$OUTPUT"
+   - Output:
+     ===== ACTUAL ACTION EVIDENCE =====
+     File exists: project11-two-routine-gate/task1/routine-b/output/follow-up.md
+     File contents:
+     # Routine B Follow-Up
+
+     Routine B executed the approved follow-up action.
+
+     Trigger: repository_dispatch
+     Event type: routine-b-approved
+     Approval: human-approved
+     Status: COMPLETED
+     ===== VERIFICATION PASSED =====
+     Routine B actually performed the follow-up action.
+   - Status: SUCCESS
+
+3. Commit follow-up evidence:
+   - Command: git add & git commit -m "chore(project11): record Routine B follow-up" && git push
+   - Output: Committed evidence and pushed to remote main.
+   - Status: SUCCESS
+
+4. Record B execution evidence:
+   - Output:
+     ROUTINE B EXECUTED
+     Trigger: repository_dispatch
+     Event type: routine-b-approved
+     Human API approval was required.
+     Actual follow-up action: VERIFIED
+   - Status: SUCCESS
+
+--------------------------------------------------------------------------------
+3. PERSISTENT ARTIFACT & GIT EVIDENCE
+--------------------------------------------------------------------------------
+Commit: 71b8a31
+Message: chore(project11): record Routine B follow-up
+File: project11-two-routine-gate/task1/routine-b/output/follow-up.md
+
+Verified Final Content:
+-----------------------
+# Routine B Follow-Up
+
+Routine B executed the approved follow-up action.
+
+Trigger: repository_dispatch
+Event type: routine-b-approved
+Approval: human-approved
+Status: COMPLETED
+
+Local & Remote Git State:
+- HEAD -> main
+- origin/main -> 71b8a31
+- Working tree clean.
+================================================================================

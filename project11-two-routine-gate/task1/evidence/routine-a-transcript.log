@@ -1,0 +1,59 @@
+================================================================================
+ROUTINE A EXECUTION TRANSCRIPT & VERIFICATION EVIDENCE
+================================================================================
+
+Workflow: .github/workflows/routine-a-one-off.yml
+Workflow Name: Routine A - One-Off Draft
+Trigger Type: workflow_dispatch (Manual / One-Off)
+Purpose: Prepare reviewable draft for human review and stop.
+
+--------------------------------------------------------------------------------
+1. VERIFIED RUN #1 (workflow_dispatch)
+--------------------------------------------------------------------------------
+Event: workflow_dispatch
+Status: Completed
+Conclusion: Success
+
+Execution Log Summary:
+----------------------
+ROUTINE A STARTED
+Trigger type: ONE-OFF
+Purpose: prepare reviewable draft
+Human gate: REQUIRED before Routine B
+Routine A must NOT trigger Routine B
+
+Draft prepared for human review.
+B has NOT been triggered.
+
+Reviewable Draft State:
+- File: project11-two-routine-gate/task1/routine-a/output/draft.md (existing reviewable artifact)
+- Review Status: PENDING HUMAN REVIEW
+
+--------------------------------------------------------------------------------
+2. VERIFIED RUN #2 (workflow_dispatch)
+--------------------------------------------------------------------------------
+Event: workflow_dispatch
+Status: Completed
+Conclusion: Success
+
+Execution Log Summary:
+----------------------
+ROUTINE A STARTED
+Trigger type: ONE-OFF
+Purpose: prepare reviewable draft
+Human gate: REQUIRED before Routine B
+Routine A must NOT trigger Routine B
+
+Draft prepared for human review.
+B has NOT been triggered.
+
+--------------------------------------------------------------------------------
+3. HUMAN GATE & DECOUPLING VERIFICATION
+--------------------------------------------------------------------------------
+Observed System State:
+- Routine A executed to completion and terminated.
+- Zero downstream triggers or webhooks were invoked.
+- Routine B had NO automatic run after Routine A.
+- Proof of Hard Boundary: Routine A completion does NOT trigger Routine B.
+- Result: Draft remains in PENDING state awaiting external human authorization.
+================================================================================
