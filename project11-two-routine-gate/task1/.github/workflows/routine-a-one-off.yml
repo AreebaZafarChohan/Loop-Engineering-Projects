@@ -1,0 +1,27 @@
+name: Routine A - One-Off Draft
+
+on:
+  workflow_dispatch:
+
+jobs:
+  routine-a:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run Routine A
+        run: |
+          echo "ROUTINE A STARTED"
+          echo "Trigger type: ONE-OFF"
+          echo "Purpose: prepare reviewable draft"
+          echo "Human gate: REQUIRED before Routine B"
+          echo "Routine A must NOT trigger Routine B"
+
+          cat routine-a/task.md
+          cat routine-a/prompt.md
+
+          echo ""
+          echo "Draft prepared for human review."
+          echo "B has NOT been triggered."
