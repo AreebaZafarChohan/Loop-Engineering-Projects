@@ -17,8 +17,8 @@ Keep documentation synchronized with the current source code.
 - Update only files under docs/.
 - Do not modify source code.
 - Do not change function behavior.
-- Preserve existing documentation style.
 - Add missing operations when they are clearly present in the source code.
+- Before submitting, re-read all exported functions in src/ and confirm every one has a matching documentation entry in docs/.
 
 ## Reviewer Checklist
 - Every exported calculator operation is documented.
