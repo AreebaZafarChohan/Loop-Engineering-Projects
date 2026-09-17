@@ -1,16 +1,16 @@
-# Project 12: Evidence-First Dreaming Loop
+# Project 12 Task 1: Evidence-First Dreaming Loop
 
 ## 1. Title & Summary
-Project 12 (Dreaming Loop) is an evidence-first, autonomous meta-improvement engine designed to analyze execution histories from continuous agent loops, detect systemic recurring failures and obsolete operational rules, and safely synthesize minimal, human-gated improvements back into the target system's core instructions without manual heuristic intervention.
+Project 12 Task 1 (Dreaming Loop) is an evidence-first, autonomous meta-improvement engine designed to analyze execution histories from continuous agent loops, detect systemic recurring failures and obsolete operational rules, and safely synthesize minimal, human-gated improvements back into the target system's core instructions without manual heuristic intervention.
 
 ---
 
 ## 2. Relationship to Project 8 (IMPORTANT — Architecture Context)
-Project 12 does **not** operate as an isolated or standalone process. It functions strictly as a **meta-loop** built on top of the pre-existing **Project 8 (`project8-daily-loop`)**:
+Project 12 Task 1 does **not** operate as an isolated or standalone process. It functions strictly as a **meta-loop** built on top of the pre-existing **Project 8 (`project8-daily-loop`)**:
 
 - **Pre-Existing Execution Spine**: Project 8's Task 2 already established a daily Maker/Checker loop governing documentation freshness (`project8-daily-loop/task2/.claude/skills/doc-freshness/SKILL.md`) and logging run outcomes to `project8-daily-loop/task2/loop/progress.md`.
-- **Zero Synthetic Disconnect**: Project 12 does not manufacture artificial telemetry or run independent scratchpads; it ingests Project 8's real chronological progress spine as its primary source of truth.
-- **Targeted Feedback Ingestion**: The sole objective of Project 12 is to inspect Project 8's historical operational log, identify verifiable patterns of repeated failure (occurring $\ge 2$ times) or demonstrably unexercised rules, and propose targeted, minimal rule patches directly back to Project 8's `SKILL.md`.
+- **Zero Synthetic Disconnect**: Project 12 Task 1 does not manufacture artificial telemetry or run independent scratchpads; it ingests Project 8's real chronological progress spine as its primary source of truth.
+- **Targeted Feedback Ingestion**: The sole objective of Project 12 Task 1 is to inspect Project 8's historical operational log, identify verifiable patterns of repeated failure (occurring $\ge 2$ times) or demonstrably unexercised rules, and propose targeted, minimal rule patches directly back to Project 8's `SKILL.md`.
 - **Self-Improving Architecture**: This architecture renders Project 8 self-improving over time without modifying any of Project 8's internal daily Maker/Checker operational mechanics or execution harnesses.
 
 ---
@@ -18,7 +18,7 @@ Project 12 does **not** operate as an isolated or standalone process. It functio
 ## 3. Motivation / Concept
 Traditional agentic loops execute reactively: if a single run fails, the agent makes a local, ephemeral patch or retries within that immediate context. However, this misses systemic, multi-session deficiencies.
 
-The **Dreaming Loop** introduces periodic, non-reactive reflection (reminiscent of biological sleep/dream consolidation cycles). By analyzing accumulated cross-session execution logs at scheduled intervals, the Dreaming Loop asks:
+The **Dreaming Loop (Project 12 Task 1)** introduces periodic, non-reactive reflection (reminiscent of biological sleep/dream consolidation cycles). By analyzing accumulated cross-session execution logs at scheduled intervals, the Dreaming Loop asks:
 > *"What specific failure mode repeatedly bypasses our guardrails, and what is the smallest, safest instruction patch to permanently eliminate it?"*
 
 This evidence-driven reflection guarantees that prompt engineering and skill evolutions are backed by empirical run records rather than speculative instincts.
@@ -29,7 +29,7 @@ This evidence-driven reflection guarantees that prompt engineering and skill evo
 
 ```text
 +-------------------------------------------------------------------------------+
-|                    Project 8: Daily Execution Spine                           |
+|                    Project 8 Task 2: Daily Execution Spine                    |
 |          (project8-daily-loop/task2/loop/progress.md)                         |
 +-------------------------------------------------------------------------------+
                                       |
@@ -41,7 +41,7 @@ This evidence-driven reflection guarantees that prompt engineering and skill evo
                                       |
                                       v
 +-------------------------------------------------------------------------------+
-|                    ANALYSIS Phase (OpenCode Runner)                           |
+|              Project 12 Task 1 ANALYSIS Phase (OpenCode Runner)               |
 |  - Read ONLY entries strictly after cursor (2026-09-11 to 2026-09-16)         |
 |  - Detect repeated failure: P12-FIXTURE-01 & 02 (exported func missing docs)  |
 |  - Detect unexercised rule: P12-FIXTURE-03..06 (style preservation unused)   |
@@ -152,7 +152,7 @@ All rule modifications require explicit, verifiable citations from historical lo
 
 ## 7. Review Iteration History
 
-The table below summarizes the multi-round automated and peer review feedback cycles that ensured complete engineering rigor:
+The table below summarizes the multi-round automated and peer review feedback cycles that ensured complete engineering rigor throughout Project 12 Task 1:
 
 | Issue Identified | Root Cause / Review Finding | Resolution & Fix Applied | Resolving Commit |
 | :--- | :--- | :--- | :--- |
@@ -167,7 +167,7 @@ The table below summarizes the multi-round automated and peer review feedback cy
 ## 8. How to Run It
 
 ### Local Analysis Trigger
-The analysis phase can be executed locally via PowerShell, which dynamically computes the workspace root and runs OpenCode:
+The analysis phase for Project 12 Task 1 can be executed locally via PowerShell, which dynamically computes the workspace root and runs OpenCode:
 
 ```powershell
 # Navigate to the task directory
@@ -195,4 +195,4 @@ The workflow is configured in `.github/workflows/project12-dreaming-loop.yml`:
 ---
 
 ## 10. Key Takeaway
-Project 12 showcases a complete **autonomous self-improving agent paradigm**: an intelligent meta-loop reads real historical telemetry from an active subsystem (Project 8), synthesizes a minimal evidence-backed improvement proposal, subjects the proposal to independent auditing and multi-round automated code review, and enforces a mandatory human gate before any modification is permitted to reach production.
+Project 12 Task 1 showcases a complete **autonomous self-improving agent paradigm**: an intelligent meta-loop reads real historical telemetry from an active subsystem (Project 8 Task 2), synthesizes a minimal evidence-backed improvement proposal, subjects the proposal to independent auditing and multi-round automated code review, and enforces a mandatory human gate before any modification is permitted to reach production.
