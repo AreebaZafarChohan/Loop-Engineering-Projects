@@ -1,6 +1,9 @@
 Set-Location $PSScriptRoot\..
 
-$repoRoot = (Resolve-Path "D:\Gemini_Cli\Loop-Engineering").Path
+$repoRoot = (git -C $PSScriptRoot rev-parse --show-toplevel 2>$null).Trim()
+if (-not $repoRoot) {
+    $repoRoot = (Resolve-Path (Join-Path $PSScriptRoot "..\..\..")).Path
+}
 
 $prompt = @"
 You are running the ANALYSIS phase of Project 12: Dreaming Loop.

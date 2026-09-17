@@ -4,7 +4,7 @@
 
 Last analyzed date: **2026-09-08**
 
-Only progress entries strictly after 2026-09-08 were analyzed.
+Only progress entries strictly after 2026-09-08 were analyzed. Analysis cursor was 2026-09-08 at the time this analysis ran; dreaming-state.md was subsequently advanced to 2026-09-16 after this proposal was accepted.
 
 ## Repeated Failure Evidence
 
@@ -64,7 +64,7 @@ Human merge required. No target skill change is effective until the PR is manual
 
 ## Verification
 
-- [x] Repository root was used: D:\Gemini_Cli\Loop-Engineering
+- [x] Repository root was used: <repo-root> (resolved dynamically at runtime)
 - [x] Only entries after cursor (2026-09-08) were analyzed
 - [x] Target skill change was proposed and is documented in the proposal
 - [x] Human-gated proposal branch is required before merge
