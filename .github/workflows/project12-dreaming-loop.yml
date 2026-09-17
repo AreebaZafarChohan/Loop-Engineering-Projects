@@ -1,0 +1,114 @@
+name: Project 12 - Dreaming Loop
+
+on:
+  schedule:
+    - cron: "0 9 * * 1"
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  dreaming-loop:
+    name: Weekly Evidence-First Improvement
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Run Dreaming Loop
+        uses: anomalyco/opencode/github@latest
+        env:
+          OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          model: opencode/mimo-v2.5-free
+          use_github_token: true
+          prompt: |
+            You are the Maker for Project 12: Dreaming Loop.
+
+            IMPORTANT:
+            You are operating inside a GitHub Actions workflow.
+            You MUST preserve the human gate.
+            You MUST NOT merge any pull request.
+            You MUST NOT modify the target skill directly on main.
+            You MUST NOT make speculative changes.
+
+            REPOSITORY ROOT:
+            ${{ github.workspace }}
+
+            PROJECT 12:
+            project12-dreaming-loop/task1/
+
+            DREAMING SKILL:
+            project12-dreaming-loop/task1/.claude/skills/dreaming-loop/SKILL.md
+
+            STATE:
+            project12-dreaming-loop/task1/dreaming-state.md
+
+            EVIDENCE:
+            project12-dreaming-loop/task1/evidence/
+
+            SOURCE SPINE:
+            project8-daily-loop/task2/loop/progress.md
+
+            TARGET SKILL:
+            project8-daily-loop/task2/.claude/skills/doc-freshness/SKILL.md
+
+            YOUR JOB:
+
+            1. Read the Dreaming Loop skill exactly.
+            2. Read dreaming-state.md and use its Last analyzed date as the cursor.
+            3. Read ONLY source-spine entries strictly after that cursor.
+            4. Identify repeated failures or corrections only when the evidence
+               appears in at least two separate logged runs/attempts.
+            5. Every proposal MUST cite exact dates, run IDs or attempts,
+               frequency, and the exact source evidence.
+            6. If repeated evidence is not sufficient, record:
+               NO EVIDENCE - NO CHANGE
+               and do not invent a proposal.
+            7. Also inspect the target skill for one possible deletion.
+               A deletion is allowed only when recent evidence shows the rule
+               was not needed or exercised. Otherwise record:
+               NO EVIDENCE - NO DELETION
+            8. If a valid improvement exists, make ONLY the smallest
+               evidence-backed change to the target skill.
+            9. Do not modify source files or unrelated project files.
+            10. Create/update evidence documentation explaining the proposal.
+            11. Update dreaming-state.md only on the proposal branch.
+            12. Create a new branch whose name starts with:
+                claude/
+            13. Commit the proposal changes to that claude/ branch.
+            14. Push the claude/ branch.
+            15. Open a pull request targeting the default branch.
+            16. The PR description MUST contain:
+                - repeated failure
+                - frequency
+                - exact run/date evidence
+                - why the proposed rule prevents recurrence
+                - proposed deletion and its evidence
+                - explicit human merge requirement
+            17. NEVER merge the PR.
+            18. NEVER approve the PR yourself.
+            19. NEVER push directly to main.
+
+            HUMAN GATE:
+
+            The final rule change is effective only after a human reviews
+            and manually merges the pull request.
+
+            Before finishing, verify:
+            - branch starts with claude/
+            - target skill changed only if evidence justified it
+            - source code was not changed
+            - evidence is attached
+            - PR was opened
+            - no merge was performed
+            - human merge is still required
+
