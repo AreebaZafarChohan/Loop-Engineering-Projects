@@ -14,10 +14,10 @@
 - Add missing operations when they are clearly present in the source code.
 ```
 
-**New rule** (inserted immediately after):
-```
+**New rule** (replaces old rule — +1/-1):
+```diff
 - Add missing operations when they are clearly present in the source code.
-- Before submitting, re-read all exported functions in src/ and confirm every one has a matching documentation entry in docs/.
++ Before submitting, re-read all exported functions in src/ and confirm every one has a matching documentation entry in docs/.
 ```
 
 **Frequency**: 2 out of 6 analyzed runs exhibited the repeated failure (33%) — P12-FIXTURE-01 and P12-FIXTURE-02 both failed because an exported calculator operation was not documented.
