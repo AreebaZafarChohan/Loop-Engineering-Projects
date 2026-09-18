@@ -16,6 +16,9 @@ Welcome to the **Loop Engineering Monorepo** — a comprehensive suite of practi
   - [Project 7: Break It on Purpose (Observability & Unit Economics)](#7-project-7-break-it-on-purpose-observability--unit-economics)
   - [Project 8: Daily Loop Engineering (Capstone)](#8-project-8-daily-loop-engineering-capstone)
   - [Project 9: Rehearse a Routine (Status vs Transcript)](#9-project-9-rehearse-a-routine-status-vs-transcript)
+  - [Project 10: Secret Drill (Decoupled Secrets & CI Injection)](#10-project-10-secret-drill-decoupled-secrets--ci-injection)
+  - [Project 11: Two-Routine Human Gate (HITL Boundary Architecture)](#11-project-11-two-routine-human-gate-hitl-boundary-architecture)
+  - [Project 12: Dreaming Loop (Autonomous Meta-Improvement Engine)](#12-project-12-dreaming-loop-autonomous-meta-improvement-engine)
 - [Core Engineering Concepts Demonstrated](#-core-engineering-concepts-demonstrated)
 - [Comparison of Heartbeat Architectures](#-comparison-of-heartbeat-architectures)
 - [Tech Stack & Tooling](#-tech-stack--tooling)
@@ -38,6 +41,9 @@ Loop-Engineering/
 ├── project7-break-it-on-purpose/ # Observability, unit economics & bounded human escalation
 ├── project8-daily-loop/        # Capstone autonomous daily loops (Lint sweep & Doc freshness)
 ├── project9-rehearse-routine/   # One-off routine execution & status vs transcript verification (A5)
+├── project10-secret-drill/     # Secrets decoupling, .env vs process env & CI injection
+├── project11-two-routine-gate/ # Human-in-the-loop (HITL) gate & Routine A/B decoupling (A6)
+├── project12-dreaming-loop/    # Autonomous meta-improvement engine & evidence-based rule patching
 ├── .github/workflows/          # CI/CD & automated event-driven PR review workflows
 ├── .gitignore                  # Clean repository ignores (Node, Python, Caches)
 └── README.md                   # Monorepo Master Documentation
@@ -141,6 +147,37 @@ Loop-Engineering/
 
 ---
 
+### 10. [Project 10: Secret Drill (Decoupled Secrets & CI Injection)](./project10-secret-drill/README.md)
+* **Core Concepts**: *Secret Management*, *Gitignore Hygiene*, *Runtime Environment Injection*, *CI/CD Secret Safety*
+* **Difficulty**: Intermediate
+* **Motive**: Demonstrates how secrets behave across local environments, clean clones, agent loops, and CI/CD pipelines, proving that `.gitignore` prevents secrets from reaching clones and enforcing process-level injection.
+* **Key Implementations**:
+  - **Task 1 (Fundamentals & Transcript Auditing)**: Demonstrates why clean clones fail when expecting `.env` vs. succeeding when credentials are provided directly in runtime environment variables (`API_TOKEN`).
+  - **Task 2 (Fresh Clone Simulation & Auth Header)**: Shows application execution failures in fresh clones without `.env` and proves seamless resolution via process environment variable injection (`$env:DUMMY_TOKEN`).
+  - **Task 3 (GitHub Actions Secret Injection)**: Automates CI/CD token availability verification (`.github/workflows/secret-drill.yml`) via repository secrets without ever exposing or leaking secret values in logs.
+
+---
+
+### 11. [Project 11: Two-Routine Human Gate (HITL Boundary Architecture)](./project11-two-routine-gate/README.md)
+* **Core Concepts**: *Human-in-the-Loop (HITL)*, *Two-Routine Decoupling (Routine A vs Routine B)*, *A6 Safety Gate*, *Bearer Token Authorization*
+* **Difficulty**: Advanced
+* **Motive**: Prevents autonomous agents from unconditionally executing high-risk actions (merges, deployments, mutations) by enforcing a strict architectural boundary requiring explicit human authorization.
+* **Key Implementations**:
+  - **Task 1 (GitHub Actions repository_dispatch Gate)**: Routine A prepares reviewable draft artifacts (`routine-a/output/draft.md`) and stops completely; Routine B executes only after an authenticated `repository_dispatch` event from a human reviewer with functional assertions.
+  - **Task 2 (Local Node.js API Gate Server)**: Routine A drafts release notes on an isolated branch (`claude/release-draft`); Routine B listens via a local Express/Node.js server with Bearer token authentication to merge only upon explicit human approval.
+
+---
+
+### 12. [Project 12: Dreaming Loop (Autonomous Meta-Improvement Engine)](./project12-dreaming-loop/README.md)
+* **Core Concepts**: *Meta-Improvement Engine*, *Evidence-First Rule Patching (+1 / -1)*, *Cursor State Tracking*, *Scheduled Reflection*
+* **Difficulty**: Advanced / Expert
+* **Motive**: Implements periodic offline memory consolidation ("dreaming") to analyze long-term agent execution history, detect systemic failure patterns ($\ge 2$ occurrences), identify obsolete rules, and generate minimal citation-backed prompt/skill improvements via human-gated PRs.
+* **Key Implementations**:
+  - **Task 1 (Dreaming Loop over Doc Freshness)**: Analyzes historical runs of Project 8 Task 2, identifies recurring doc omissions, adds a pre-submission verification rule (+1), removes an unexercised style rule (-1), and advances the date cursor.
+  - **Task 2 (Dreaming Loop over Daily Lint Sweep)**: Analyzes historical runs of Project 8 Task 1, catches agents cheating with `eslint-disable` comments, patches the skill to forbid disabling comments (+1), and prunes the unneeded `prefer-const` rule (-1).
+
+---
+
 ## 🧠 Core Engineering Concepts Demonstrated
 
 | Concept | Description | Project |
@@ -158,6 +195,9 @@ Loop-Engineering/
 | **Spine Observability & Escalation** | Diagnosing overnight agent failures purely via persistent spine logs and halting at bounded thresholds with `NEEDS HUMAN`. | [Project 7](./project7-break-it-on-purpose/README.md) |
 | **Production Capstone Loops** | Comprehensive end-to-end integration of Heartbeat, Worktrees, Skills, Maker-Checker, Spine, and Human Governance. | [Project 8](./project8-daily-loop/README.md) |
 | **Status vs. Transcript (A5)** | Validating true agent success via observable transcripts and artifact inspection rather than relying on exit code 0. | [Project 9](./project9-rehearse-routine/README.md) |
+| **Decoupled Secrets & Runtime Injection** | Ensuring secrets are decoupled from Git/clones and supplied via process environment variables and CI vaults. | [Project 10](./project10-secret-drill/README.md) |
+| **Two-Routine Human Gate (HITL / A6)** | Enforcing architectural boundaries between preparation (Routine A) and human-authorized execution (Routine B). | [Project 11](./project11-two-routine-gate/README.md) |
+| **Autonomous Meta-Improvement (Dreaming)** | Periodic evidence-backed reflection across agent run histories to safely patch and prune rules (+1 / -1). | [Project 12](./project12-dreaming-loop/README.md) |
 
 ---
 
